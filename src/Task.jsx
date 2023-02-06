@@ -3,12 +3,16 @@ import React from "react";
 function Task(props) {
   return (
     <div className="task-row">
-      {props.isParent ? <div className="img">V</div> : null}
-      <div className={props.isParent ? "task-box parent" : "task-box child"}>
-        <div className="task-tile">Task</div>
+      {!props.task.parent_task ? <div className="img">V</div> : null}
+      <div
+        className={
+          !props.task.parent_task ? "task-box parent" : "task-box child"
+        }
+      >
+        <div className="task-tile">{props.task.title}</div>
         <div className="task-date">
-          <span>1-2-30</span>
-          {props.isParent ? <span>add child</span> : null}
+          <span>{props.task.due}</span>
+          {!props.task.parent_task ? <span>add child</span> : null}
         </div>
       </div>
     </div>

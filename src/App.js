@@ -1,7 +1,22 @@
 import "./App.css";
 import Task from "./Task";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([
+    {
+      id: 118,
+      title: "nissy1223",
+      due: "2023-02-17",
+      parent_task: null,
+    },
+    {
+      id: 1,
+      title: "nissy13",
+      due: "23-02-17",
+      parent_task: 118,
+    },
+  ]);
   return (
     <div className="App">
       <div className="top-row">
@@ -9,12 +24,12 @@ function App() {
         <button>Add Task</button>
       </div>
       <div className="tasks">
-        <Task isParent={true}></Task>
-        <Task isParent={false}></Task>
-        <Task isParent={true}></Task>
+        {tasks.map((item) => {
+          return <Task task={item} />;
+        })}
       </div>
     </div>
   );
-}
+};
 
 export default App;
