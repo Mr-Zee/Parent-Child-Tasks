@@ -1,22 +1,22 @@
 import "./App.css";
 import Task from "./Task";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 118,
-      title: "nissy1223",
-      due: "2023-02-17",
-      parent_task: null,
-    },
-    {
-      id: 1,
-      title: "nissy13",
-      due: "23-02-17",
-      parent_task: 118,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  async function getData() {
+    const response = await fetch("http://44.202.40.172/api/tasks/", {
+      method: "GET",
+    });
+    const result = await response.json();
+    console.log(result);
+    setTasks(result);
+  }
   return (
     <div className="App">
       <div className="top-row">
