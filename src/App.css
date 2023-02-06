@@ -32,3 +32,21 @@
   margin-left: 6em;
   /* background: yellow; */
 }
+
+.addTaskModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background: #00000093;
+  color: wheat;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
