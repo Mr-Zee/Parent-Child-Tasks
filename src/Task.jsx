@@ -22,7 +22,7 @@ function Task(props) {
   return (
     <>
       <div className="task-row">
-        {!props.task.parent_task ? <div className="img">V</div> : null}
+        {!props.task.parent_task ? <div className="logo"></div> : null}
         <div
           className={
             !props.task.parent_task ? "task-box parent" : "task-box child"
@@ -33,11 +33,12 @@ function Task(props) {
             <span>{props.task.due}</span>
             {!props.task.parent_task ? (
               <span
+                className="add-child-link"
                 onClick={() => {
                   setShowAddTask(true);
                 }}
               >
-                add child Task
+                add child
               </span>
             ) : null}
           </div>

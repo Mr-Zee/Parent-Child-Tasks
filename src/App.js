@@ -37,11 +37,17 @@ const App = () => {
           onClick={() => {
             setShowAddTask(true);
           }}
+          className="todo-button"
         >
           Add Task
         </button>
       </div>
       <div className="tasks">
+        <div className="title-bar">
+          <p className="tile-name">Task Title</p>
+          <p className="tile-due">Due</p>
+        </div>
+
         {parentData.map((item) => {
           return <Task task={item} getData={getData} childData={childData} />;
         })}
