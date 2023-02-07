@@ -48,11 +48,11 @@ function AddTask(props) {
           />
           <span>Parent Task</span>
           <select name="parent-id" id="">
-            <option value="volvo">null</option>
+            <option value="parent-task-id">parent {props.parent_task}</option>
           </select>
           <input
             type="button"
-            Value="Post"
+            value="Post"
             onClick={(e) => {
               e.preventDefault();
               postData();

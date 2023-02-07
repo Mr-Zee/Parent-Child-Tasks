@@ -15,9 +15,7 @@ function Task(props) {
 
   const toggleModal = (status) => {
     setShowAddTask(status);
-    setTimeout(() => {
-      props.getData();
-    }, 3000);
+    props.getData();
   };
   return (
     <>

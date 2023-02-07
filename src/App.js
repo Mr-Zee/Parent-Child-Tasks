@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="top-row">
-        <h3>My Task</h3>
+        <h2>My Task</h2>
         <button
           onClick={() => {
             setShowAddTask(true);
