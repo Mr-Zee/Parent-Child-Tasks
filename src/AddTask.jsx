@@ -45,24 +45,26 @@ function AddTask(props) {
               setDue(event.target.value);
             }}
           />
-          <span>Parent Task</span>
           {props.parentData.length > 0 ? (
-            <select
-              name="parent-id"
-              id=""
-              onChange={(event) => {
-                setParentId(event.target.value);
-              }}
-            >
-              <option value={null}>null</option>
-              {props.parentData.map((item, index) => {
-                return (
-                  <option value={item.id} key={index}>
-                    {item.title}
-                  </option>
-                );
-              })}
-            </select>
+            <>
+              <span>Parent Task</span>
+              <select
+                name="parent-id"
+                id=""
+                onChange={(event) => {
+                  setParentId(event.target.value);
+                }}
+              >
+                <option value={null}>null</option>
+                {props.parentData.map((item, index) => {
+                  return (
+                    <option value={item.id} key={index}>
+                      {item.title}
+                    </option>
+                  );
+                })}
+              </select>
+            </>
           ) : null}
           <input
             type="button"
