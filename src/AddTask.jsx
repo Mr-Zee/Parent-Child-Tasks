@@ -17,7 +17,7 @@ function AddTask(props) {
       },
     });
     const result = await response.json();
-    
+
     props.toggleModal(false);
   }
 
@@ -25,17 +25,18 @@ function AddTask(props) {
     <>
       <div className="addTaskModal">
         <form>
-          title
+          <span>Title</span>
           <input
             type="text"
             name="title"
             id=""
+            placeholder="title name"
             onChange={(event) => {
               console.log(event.target.value);
               setTitle(event.target.value);
             }}
           />
-          date
+          <span>Due</span>
           <input
             type="date"
             name="due"
@@ -45,18 +46,18 @@ function AddTask(props) {
               setDue(event.target.value);
             }}
           />
-          parent task
+          <span>Parent Task</span>
           <select name="parent-id" id="">
-            <option value="volvo">Volvo</option>
+            <option value="volvo">null</option>
           </select>
-          <button
+          <input
+            type="button"
+            Value="Post"
             onClick={(e) => {
               e.preventDefault();
               postData();
             }}
-          >
-            POST
-          </button>
+          />
         </form>
       </div>
     </>

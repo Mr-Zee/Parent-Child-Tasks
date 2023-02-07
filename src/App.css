@@ -61,7 +61,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   background: #00000093;
-  color: wheat;
+  color: rgb(0, 0, 0);
 }
 
 form {
@@ -88,4 +88,43 @@ form {
   border: 1px solid #ffffff00;
   height: 10px;
   border-radius: 0px 50px 50px 0px;
+}
+
+form {
+  background: white;
+  padding: 3em;
+  height: 320px;
+  border-radius: 20px;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+input,
+select {
+  background: transparent;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-radius: 5000px;
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #020202;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+input,
+select:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+select {
+  width: 100%;
+}
+::placeholder {
+  color: #020202;
 }
