@@ -44,7 +44,11 @@ function Task(props) {
           </div>
         </div>
         {showAddTask ? (
-          <AddTask toggleModal={toggleModal} task={props.task} />
+          <AddTask
+            toggleModal={toggleModal}
+            task={props.task}
+            parentData={[]}
+          />
         ) : null}
       </div>
 

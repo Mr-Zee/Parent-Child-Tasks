@@ -60,7 +60,9 @@ const App = () => {
           );
         })}
       </div>
-      {showAddTask ? <AddTask toggleModal={toggleModal} /> : null}
+      {showAddTask ? (
+        <AddTask toggleModal={toggleModal} parentData={parentData} />
+      ) : null}
     </div>
   );
 };

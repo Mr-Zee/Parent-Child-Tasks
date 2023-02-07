@@ -3,14 +3,16 @@ import React, { useState } from "react";
 function AddTask(props) {
   const [title, setTitle] = useState("");
   const [due, setDue] = useState("");
+  const [parentId, setParentId] = useState(null);
 
   async function postData() {
+    console.log("post ", props.task);
     const response = await fetch("http://44.202.40.172/api/tasks/", {
       method: "POST",
       body: JSON.stringify({
         title: title,
         due: due,
-        parent_task: props.task?.id,
+        parent_task: parentId ? parentId : props?.task?.id,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -43,10 +45,25 @@ function AddTask(props) {
               setDue(event.target.value);
             }}
           />
-          {/* <span>Parent Task</span>
-          <select name="parent-id" id="">
-            <option value="parent-task-id">parent {props.parent_task.id}</option>
-          </select> */}
+          <span>Parent Task</span>
+          {props.parentData.length > 0 ? (
+            <select
+              name="parent-id"
+              id=""
+              onChange={(event) => {
+                setParentId(event.target.value);
+              }}
+            >
+              <option value={null}>null</option>
+              {props.parentData.map((item, index) => {
+                return (
+                  <option value={item.id} key={index}>
+                    {item.title}
+                  </option>
+                );
+              })}
+            </select>
+          ) : null}
           <input
             type="button"
             value="Post"
