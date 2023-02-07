@@ -17,7 +17,6 @@ function AddTask(props) {
       },
     });
     const result = await response.json();
-
     props.toggleModal(false);
   }
 
@@ -46,7 +45,7 @@ function AddTask(props) {
           />
           {/* <span>Parent Task</span>
           <select name="parent-id" id="">
-            <option value="parent-task-id">parent {}</option>
+            <option value="parent-task-id">parent {props.parent_task.id}</option>
           </select> */}
           <input
             type="button"

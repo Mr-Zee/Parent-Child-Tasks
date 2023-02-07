@@ -11,11 +11,13 @@ function Task(props) {
       (item) => item.parent_task == props.task.id
     );
     setMyChildData(myChildData);
-  }, []);
+  }, [props.childData]);
 
   const toggleModal = (status) => {
     setShowAddTask(status);
-    props.getData();
+    setTimeout(() => {
+      props.getData();
+    }, 1000);
   };
   return (
     <>
@@ -47,8 +49,15 @@ function Task(props) {
       </div>
 
       {myChildData?.length > 0 &&
-        myChildData.map((item) => {
-          return <Task task={item} getData={props.getData} childData={[]} />;
+        myChildData.map((item, index) => {
+          return (
+            <Task
+              task={item}
+              getData={props.getData}
+              childData={[]}
+              key={index}
+            />
+          );
         })}
     </>
   );

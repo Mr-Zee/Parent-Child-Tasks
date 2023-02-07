@@ -8,9 +8,9 @@ const App = () => {
   const [parentData, setParentData] = useState([]);
   const [childData, setChildData] = useState([]);
   const [showAddTask, setShowAddTask] = useState(false);
-  const toggleModal = (status) => {
+  const toggleModal = async (status) => {
     setShowAddTask(status);
-    getData();
+    await getData();
   };
   useEffect(() => {
     getData();
@@ -19,6 +19,7 @@ const App = () => {
   async function getData() {
     const response = await fetch("http://44.202.40.172/api/tasks/", {
       method: "GET",
+      crossDomain: true,
     });
     const result = await response.json();
     let parentData = result.filter((item) => !item.parent_task);
@@ -48,8 +49,15 @@ const App = () => {
           <p className="tile-due">Due</p>
         </div>
 
-        {parentData.map((item) => {
-          return <Task task={item} getData={getData} childData={childData} />;
+        {parentData.map((item, index) => {
+          return (
+            <Task
+              task={item}
+              getData={getData}
+              childData={childData}
+              key={index}
+            />
+          );
         })}
       </div>
       {showAddTask ? <AddTask toggleModal={toggleModal} /> : null}
