@@ -32,7 +32,6 @@ function AddTask(props) {
             id=""
             placeholder="title name"
             onChange={(event) => {
-              console.log(event.target.value);
               setTitle(event.target.value);
             }}
           />
@@ -42,14 +41,13 @@ function AddTask(props) {
             name="due"
             id=""
             onChange={(event) => {
-              console.log(event.target.value);
               setDue(event.target.value);
             }}
           />
-          <span>Parent Task</span>
+          {/* <span>Parent Task</span>
           <select name="parent-id" id="">
-            <option value="parent-task-id">parent {props.parent_task}</option>
-          </select>
+            <option value="parent-task-id">parent {}</option>
+          </select> */}
           <input
             type="button"
             value="Post"
